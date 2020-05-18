@@ -1,0 +1,3 @@
+version: 1
+push:
+pull_request:
