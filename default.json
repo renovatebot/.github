@@ -141,7 +141,7 @@
     {
       "fileMatch": ["^builder.json$"],
       "matchStrings": [
-        "\"image\"=\"(?<image>[a-z-]+?)\"\\s,\\s\"datasource\"=\"(?<datasource>[a-z-]+?)\"(?:\\s,\\s\"depName\"=\"(?<depName>[a-z-]+?)\")?(?:\\s,\\s\"versioning\"=\"(?<versioning>[a-z-]+?)\")?(?:\\s,\\s\"latestVersion\"=\"(?<latestVersion>.+?)\")?"
+        "\"image\"=\"(?<image>[a-z-]+?)\"\\s,\\s\"datasource\"=\"(?<datasource>[a-z-]+?)\"(?:\\s,\\s\"depName\"=\"(?<depName>[a-z-]+?)\")?(?:\\s,\\s\"versioning\"=\"(?<versioning>[a-z-]+?)\")?(?:\\s,\\s\"latestVersion\"=\"(?<currentValue>.+?)\")?"
       ],
       "depNameTemplate": "{{#if depName}}{{depName}}{{else}}{{image}}{{/if}}",
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
