@@ -8,7 +8,7 @@ env:
   RENOVATE_VBERSION: 24.32.0 #renovate: datasource=npm depName=renovate
 
 jobs:
-  test-presets:
+  preset:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
