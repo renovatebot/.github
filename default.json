@@ -3,70 +3,47 @@
   "description": "Default preset for use with Renovate's repos",
   "extends": [
     "config:base",
-    ":dependencyDashboard",
+    ":maintainLockFilesWeekly",
     ":rebaseStalePrs",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
     "docker:enableMajor",
-    ":masterIssue",
-    "github>whitesource/merge-confidence:beta",
+    "docker:pinDigests",
     "group:linters"
   ],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "automergeType": "branch",
-    "dependencyDashboardApproval": false
-  },
   "assignees": ["rarkins", "viceice"],
-  "prCreation": "not-pending",
   "automergeType": "branch",
-  "docker": {
-    "pinDigests": true
-  },
+  "dependencyDashboard": true,
+  "prCreation": "not-pending",
+  "rebaseWhen": "behind-base-branch",
   "packageRules": [
     {
-      "updateTypes": ["major"],
+      "description": "Require dashboard approval for major updates except Renovate",
+      "excludePackagePatterns": ["^renovate(bot)?($|/)"],
+      "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     },
     {
       "description": "Automerge non-major updates",
-      "excludePackageNames": ["renovate"],
-      "updateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
       "automerge": true
     },
     {
-      "depTypeList": ["devDependencies"],
-      "updateTypes": ["pin", "digest", "patch", "minor"],
-      "automerge": true,
-      "dependencyDashboardApproval": false
-    },
-    {
-      "description": "Auto aprove any renovate dependencies",
-      "packageNames": ["renovate"],
-      "packagePatterns": ["^renovate/", "^renovatebot/"],
-      "stabilityDays": 0,
-      "dependencyDashboardApproval": false
-    },
-    {
-      "description": "Automerge renovate minor and lower updates",
-      "packagePatterns": ["^renovate/"],
-      "updateTypes": ["pin", "digest", "patch", "minor"],
-      "automerge": true
-    },
-    {
-      "depTypeList": ["action"],
+      "description": "v prefix workaround for action updates",
+      "matchDepTypes": ["action"],
       "extractVersion": "^(?<version>v\\d+\\.\\d+\\.\\d+)$",
       "versioning": "regex:^v(?<major>\\d+)(\\.(?<minor>\\d+)\\.(?<patch>\\d+))?$"
     },
     {
-      "packageNames": ["prettier"],
-      "packagePatterns": ["^@prettier\\/", "^prettier-plugin-"],
+      "description": "group prettier packages",
+      "matchPackageNames": ["prettier"],
+      "matchPackagePatterns": ["^@prettier\\/", "^prettier-plugin-"],
       "groupName": "prettier packages"
     },
     {
-      "description": "Update references to Docker tags for renovate/renovate in Markdown files",
-      "packageNames": ["renovate/renovate"],
-      "paths": [".md"],
+      "description": "Update references to Docker tags for renovate/renovate in Markdown files weekly",
+      "matchPackageNames": ["renovate/renovate"],
+      "matchPaths": [".md"],
       "extends": ["schedule:weekly"],
       "automerge": true,
       "stabilityDays": 0,
@@ -76,40 +53,36 @@
       "additionalBranchPrefix": "docs-"
     },
     {
-      "description": "Automerge ubuntu digest updates (usually security patches)",
-      "datasources": ["docker"],
-      "packageNames": ["amd64/ubuntu", "ubuntu"],
-      "updateTypes": ["pin", "digest"],
-      "automerge": true
-    },
-    {
       "description": "Disable ubuntu minor updates",
-      "datasources": ["docker"],
-      "packageNames": ["amd64/ubuntu", "ubuntu"],
-      "updateTypes": ["minor"],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["amd64/ubuntu", "ubuntu"],
+      "matchUpdateTypes": ["minor"],
       "enabled": false
     },
     {
-      "description": "Group digest updates",
-      "datasources": ["docker"],
-      "updateTypes": ["digest"],
-      "packageNames": ["ubuntu", "renovate/ubuntu", "renovate/buildpack"],
+      "description": "Group renovate buildpack and ubuntu digest updates with themselves",
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["digest"],
+      "matchPackageNames": ["ubuntu", "renovate/ubuntu", "renovate/buildpack"],
       "branchTopic": "{{{depNameSanitized}}}-digests",
       "commitMessageTopic": "{{{depName}}} Docker digests"
     },
     {
-      "datasources": ["npm"],
+      "description": "One week stability period for npm packages except Renovate",
+      "matchDatasources": ["npm"],
       "excludePackageNames": ["renovate"],
       "stabilityDays": 7
     },
     {
-      "datasources": ["npm"],
-      "packageNames": ["aws-sdk"],
+      "description": "Require approval for aws-sdk as it updates too often",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["aws-sdk"],
       "dependencyDashboardApproval": true
     }
   ],
   "regexManagers": [
     {
+      "description": "Update renovate references in markdown files",
       "fileMatch": ["\\.md$"],
       "matchStrings": [
         "(?<depName>renovate\\/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
@@ -118,6 +91,7 @@
       "versioningTemplate": "docker"
     },
     {
+      "description": "Update _VERSION variables in Dockerfiles",
       "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s(?:ENV|ARG) .+?_VERSION=(?<currentValue>.+?)\\s"
@@ -125,6 +99,7 @@
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     },
     {
+      "description": "Update install-* buildpack commands in Dockerfiles",
       "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?)(?: lookupName=(?<lookupName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\sRUN install-[a-z]+? (?<depName>[a-z-]+?) (?<currentValue>.+?)\\s"
@@ -132,6 +107,7 @@
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     },
     {
+      "description": "Update _VERSION variables in shell scripts",
       "fileMatch": ["\\.sh$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s[A-Z_]+?_VERSION=(?<currentValue>.+?)\\s"
@@ -139,6 +115,7 @@
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     },
     {
+      "description": "Update version: variables in workflows",
       "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
       "matchStrings": [
         "^\\s+version: (?<currentValue>.*) #renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)(?: versioning=(?<versioning>.*?))?\\s"
