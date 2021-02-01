@@ -1,0 +1,27 @@
+name: test
+
+on:
+  push:
+
+env:
+  LOG_LEVEL: debug
+  RENOVATE_VBERSION: 24.32.0 #renovate: datasource=npm depName=renovate
+
+jobs:
+  preset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        file:
+          - default
+          - renovate-config
+    env:
+      RENOVATE_CONFIG_FILE: ${{ matrix.file }}.json
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: testing ${{ matrix.file }}
+        run: npx -p renovate@${{ env.RENOVATE_VBERSION }} renovate-config-validator
