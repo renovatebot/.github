@@ -2,4 +2,4 @@
 
 # .github
 
-This repository contains the basic Renovate configuration that is used in most/all other renovatebot repositories.
+This repository contains the basic Renovate configuration that is used in all other renovatebot repositories.
