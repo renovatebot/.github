@@ -77,6 +77,7 @@
       "description": "Require approval for aws-sdk as it updates too often",
       "matchDatasources": ["npm"],
       "matchPackageNames": ["aws-sdk"],
+      "matchPackagePatterns": ["^@aws-sdk\\/"],
       "dependencyDashboardApproval": true
     }
   ],
