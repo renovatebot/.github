@@ -35,7 +35,7 @@
       "versioning": "regex:^v(?<major>\\d+)(\\.(?<minor>\\d+)\\.(?<patch>\\d+))?$"
     },
     {
-      "description": "group prettier packages",
+      "description": "Group prettier packages",
       "matchPackageNames": ["prettier"],
       "matchPackagePatterns": ["^@prettier\\/", "^prettier-plugin-"],
       "groupName": "prettier packages"
@@ -53,14 +53,14 @@
       "additionalBranchPrefix": "docs-"
     },
     {
-      "description": "Disable ubuntu minor updates",
+      "description": "Disable Ubuntu minor updates",
       "matchDatasources": ["docker"],
       "matchPackageNames": ["amd64/ubuntu", "ubuntu"],
       "matchUpdateTypes": ["minor"],
       "enabled": false
     },
     {
-      "description": "Group renovate buildpack and ubuntu digest updates with themselves",
+      "description": "Group Renovate Buildpack and Ubuntu digest updates with themselves",
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
       "matchPackageNames": ["ubuntu", "renovate/ubuntu", "renovate/buildpack"],
@@ -83,7 +83,7 @@
   ],
   "regexManagers": [
     {
-      "description": "Update renovate references in markdown files",
+      "description": "Update Renovate references in Markdown files",
       "fileMatch": ["\\.md$"],
       "matchStrings": [
         "(?<depName>renovate\\/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
@@ -100,7 +100,7 @@
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     },
     {
-      "description": "Update install-* buildpack commands in Dockerfiles",
+      "description": "Update install-* Buildpack commands in Dockerfiles",
       "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?)(?: lookupName=(?<lookupName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\sRUN install-[a-z]+? (?<depName>[a-z-]+?) (?<currentValue>.+?)\\s"
