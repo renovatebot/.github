@@ -79,6 +79,11 @@
       "matchPackageNames": ["aws-sdk"],
       "matchPackagePatterns": ["^@aws-sdk\\/"],
       "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Restrict husky to v4 due to commercial license for v5",
+      "packageNames": ["husky"],
+      "allowedVersions": "<5"
     }
   ],
   "regexManagers": [
