@@ -88,6 +88,11 @@
     {
       "description": "Only patch updates on renovate rebuild trigger files",
       "matchFiles": ["renovate.Dockerfile"],
+      "separateMinorPatch": true
+    },
+    {
+      "description": "Only patch updates on renovate rebuild trigger files",
+      "matchFiles": ["renovate.Dockerfile"],
       "matchUpdateTypes": ["major", "minor"],
       "enabled": false
     }
