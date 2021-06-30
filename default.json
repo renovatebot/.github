@@ -110,8 +110,8 @@
         "(?<depName>actions\\/checkout)@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
         "(?<depName>renovatebot\\/github-action)@(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
       ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver"
     },
     {
       "description": "Update _VERSION variables in Dockerfiles",
