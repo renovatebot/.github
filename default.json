@@ -104,11 +104,11 @@
       "versioningTemplate": "docker"
     },
     {
-      "description": "Update Github Action references in the README.md on renovatebot/github-action repository",
-      "fileMatch": ["^README\\.md$"],
+      "description": "Update Github Action references in the markdown files",
+      "fileMatch": ["\\.md$"],
       "matchStrings": [
-        "(?<depName>actions\\/checkout)@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
-        "(?<depName>renovatebot\\/github-action)@(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+        "\\suses: (?<depName>actions\\/checkout)@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
+        "\\suses: (?<depName>renovatebot\\/github-action)@(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver"
