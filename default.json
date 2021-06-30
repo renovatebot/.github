@@ -105,7 +105,7 @@
     },
     {
       "description": "Update Github Action references in the readme.md on renovatebot/github-action repository",
-      "fileMatch": ["readme.md"],
+      "fileMatch": ["README.md"],
       "matchStrings": [
         "insert regex that matches actions/checkout@v2.3.4 and matches renovatebot/github-action@v25.51.5"
       ],
