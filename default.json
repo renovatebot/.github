@@ -9,8 +9,7 @@
     ":semanticCommitScope(deps)",
     "docker:enableMajor",
     "docker:pinDigests",
-    "group:linters",
-    "helper:pinGitHubActionDigests"
+    "group:linters"
   ],
   "assignees": ["rarkins", "viceice"],
   "automergeType": "branch",
