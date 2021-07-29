@@ -108,8 +108,7 @@
       "description": "Update Github Action references in the markdown files",
       "fileMatch": ["\\.md$"],
       "matchStrings": [
-        "\\suses: (?<depName>actions\\/checkout)@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
-        "\\suses: (?<depName>renovatebot\\/github-action)@(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+        "\\suses: (?<depName>[\\w-]+\\/[\\w-]+)(?<path>\\/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver"
