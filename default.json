@@ -21,7 +21,7 @@
   "internalChecksFilter": "strict",
   "packageRules": [
     {
-      "description": "Get PRs for major updates that pass the tests, exclude Renovate packages"
+      "description": "Get PRs for major updates that pass the tests, exclude Renovate packages",
       "excludePackagePatterns": ["^renovate(bot)?($|/)"],
       "matchUpdateTypes": ["major"],
       "prCreation": "status-success",
