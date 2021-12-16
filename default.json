@@ -22,7 +22,7 @@
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates except Renovate",
-      "excludePackagePatterns": ["^renovate(bot)?($|/)"],
+      "excludePackagePatterns": ["^renovate(bot)?($|/)", "^(renovate|containerbase)\\/buildpack$"],
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     },
