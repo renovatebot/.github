@@ -22,7 +22,7 @@
   "packageRules": [
     {
       "description": "Get PRs for major updates that pass the tests, exclude Renovate packages",
-      "excludePackagePatterns": ["^renovate(bot)?($|/)"],
+      "excludePackagePatterns": ["^renovate(bot)?($|/)", "^(renovate|containerbase)\\/buildpack$"],
       "matchUpdateTypes": ["major"],
       "prCreation": "status-success",
       "rebaseWhen": "conflicted"
