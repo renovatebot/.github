@@ -21,10 +21,11 @@
   "internalChecksFilter": "strict",
   "packageRules": [
     {
-      "description": "Require dashboard approval for major updates except Renovate",
+      "description": "Get PRs for major updates that pass the tests, exclude Renovate packages",
       "excludePackagePatterns": ["^renovate(bot)?($|/)", "^(renovate|containerbase)\\/buildpack$"],
       "matchUpdateTypes": ["major"],
-      "dependencyDashboardApproval": true
+      "prCreation": "status-success",
+      "rebaseWhen": "conflicted"
     },
     {
       "description": "Automerge non-major updates",
