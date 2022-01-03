@@ -17,11 +17,12 @@
   "dependencyDashboard": true,
   "prCreation": "not-pending",
   "rebaseWhen": "behind-base-branch",
+  "platformAutomerge": true,
   "internalChecksFilter": "strict",
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates except Renovate",
-      "excludePackagePatterns": ["^renovate(bot)?($|/)"],
+      "excludePackagePatterns": ["^renovate(bot)?($|/)", "^(renovate|containerbase)\\/buildpack$"],
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     },
@@ -49,6 +50,7 @@
       "extends": ["schedule:weekly"],
       "automerge": true,
       "stabilityDays": 0,
+      "separateMajorMinor": false,
       "commitMessageTopic": "references to {{{depName}}}",
       "semanticCommitType": "docs",
       "semanticCommitScope": null,
