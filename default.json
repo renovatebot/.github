@@ -22,7 +22,7 @@
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates except Renovate",
-      "excludePackagePatterns": ["^renovate(bot)?($|/)", "^(renovate|containerbase)\\/buildpack$"],
+      "excludePackagePatterns": ["^renovate(bot)?($|/)", "^(renovate|containerbase)\\/buildpack$", "^@renovatebot\\/"],
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     },
@@ -75,6 +75,7 @@
       "description": "One week stability period for npm packages except Renovate",
       "matchDatasources": ["npm"],
       "excludePackageNames": ["renovate"],
+      "excludePackagePrefixes": ["@renovatebot/"],
       "stabilityDays": 7
     },
     {
