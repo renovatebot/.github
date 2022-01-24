@@ -75,7 +75,7 @@
       "description": "One week stability period for npm packages except Renovate",
       "matchDatasources": ["npm"],
       "excludePackageNames": ["renovate"],
-      "excludePackagePrefixes": ["@renovatebot/"]
+      "excludePackagePrefixes": ["@renovatebot/"],
       "stabilityDays": 7
     },
     {
