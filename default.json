@@ -108,7 +108,7 @@
       "versioningTemplate": "docker"
     },
     {
-      "description": "Update Github Action references in the markdown files",
+      "description": "Update Github Action references in the Markdown files",
       "fileMatch": ["\\.md$"],
       "matchStrings": [
         "\\suses: (?<depName>[\\w-]+\\/[\\w-]+)(?<path>\\/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
