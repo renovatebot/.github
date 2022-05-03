@@ -95,6 +95,12 @@
       "matchFiles": ["renovate.Dockerfile"],
       "matchUpdateTypes": ["major", "minor"],
       "enabled": false
+    },
+    {
+      "description": "Trigger fix release for buildpack updates",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["containerbase/buildpack", "renovate/buildpack"],
+      "semanticCommitType": "fix"
     }
   ],
   "regexManagers": [
