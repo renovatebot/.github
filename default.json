@@ -22,7 +22,11 @@
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates except Renovate",
-      "excludePackagePatterns": ["^renovate(bot)?($|/)", "^(renovate|containerbase)\\/buildpack$", "^@renovatebot\\/"],
+      "excludePackagePatterns": [
+        "^renovate(bot)?($|/)",
+        "^(renovate|(?:ghcr.io\\/)?containerbase)\\/buildpack$",
+        "^@renovatebot\\/"
+      ],
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     },
@@ -67,7 +71,13 @@
       "description": "Group Renovate Buildpack and Ubuntu digest updates with themselves",
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
-      "matchPackageNames": ["ubuntu", "renovate/ubuntu", "renovate/buildpack"],
+      "matchPackageNames": [
+        "ubuntu",
+        "renovate/ubuntu",
+        "renovate/buildpack",
+        "containerbase/buildpack",
+        "ghcr.io/containerbase/buildpack"
+      ],
       "branchTopic": "{{{depNameSanitized}}}-digests",
       "commitMessageTopic": "{{{depName}}} Docker digests"
     },
@@ -99,7 +109,11 @@
     {
       "description": "Trigger fix release for buildpack updates",
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["containerbase/buildpack", "renovate/buildpack"],
+      "matchPackageNames": [
+        "containerbase/buildpack",
+        "ghcr.io/containerbase/buildpack",
+        "renovate/buildpack"
+      ],
       "semanticCommitType": "fix"
     }
   ],
