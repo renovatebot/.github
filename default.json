@@ -51,7 +51,7 @@
     {
       "description": "Update references to Docker tags for renovate/renovate in Markdown files weekly",
       "matchPackageNames": ["renovate/renovate"],
-      "matchPaths": [".md"],
+      "matchPaths": ["**/*.md"],
       "extends": ["schedule:weekly"],
       "automerge": true,
       "stabilityDays": 0,
