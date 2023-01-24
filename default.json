@@ -94,7 +94,8 @@
       "matchDatasources": ["npm"],
       "matchPackageNames": ["aws-sdk"],
       "matchPackagePatterns": ["^@aws-sdk\\/"],
-      "dependencyDashboardApproval": true
+      "dependencyDashboardApproval": true,
+      "stabilityDays": 0
     },
     {
       "description": "Only patch updates on renovate rebuild trigger files",
