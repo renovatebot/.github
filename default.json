@@ -25,8 +25,8 @@
       "description": "Require dashboard approval for major updates except Renovate",
       "excludePackagePatterns": [
         "^renovate(bot)?($|/)",
-        "^(renovate|(?:ghcr.io\\/)?containerbase)\\/buildpack$",
-        "^@renovatebot\\/"
+        "^(?:ghcr.io/)?containerbase/base$",
+        "^@renovatebot/"
       ],
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
@@ -45,12 +45,15 @@
     {
       "description": "Group prettier packages",
       "matchPackageNames": ["prettier"],
-      "matchPackagePatterns": ["^@prettier\\/", "^prettier-plugin-"],
+      "matchPackagePatterns": ["^@prettier/", "^prettier-plugin-"],
       "groupName": "prettier packages"
     },
     {
       "description": "Update references to Docker tags for renovate/renovate in Markdown files weekly",
-      "matchPackageNames": ["renovate/renovate"],
+      "matchPackageNames": [
+        "renovate/renovate",
+        "ghcr.io/renovatebot/renovate"
+      ],
       "matchPaths": ["**/*.md"],
       "extends": ["schedule:weekly"],
       "automerge": true,
@@ -74,10 +77,8 @@
       "matchUpdateTypes": ["digest"],
       "matchPackageNames": [
         "ubuntu",
-        "renovate/ubuntu",
-        "renovate/buildpack",
-        "containerbase/buildpack",
-        "ghcr.io/containerbase/buildpack"
+        "containerbase/base",
+        "ghcr.io/containerbase/base"
       ],
       "branchTopic": "{{{depNameSanitized}}}-digests",
       "commitMessageTopic": "{{{depName}}} Docker digests"
@@ -93,7 +94,7 @@
       "description": "Require approval for aws-sdk as it updates too often",
       "matchDatasources": ["npm"],
       "matchPackageNames": ["aws-sdk"],
-      "matchPackagePatterns": ["^@aws-sdk\\/"],
+      "matchPackagePatterns": ["^@aws-sdk/"],
       "dependencyDashboardApproval": true,
       "stabilityDays": 0
     },
@@ -111,11 +112,7 @@
     {
       "description": "Trigger fix release for buildpack updates",
       "matchDatasources": ["docker"],
-      "matchPackageNames": [
-        "containerbase/buildpack",
-        "ghcr.io/containerbase/buildpack",
-        "renovate/buildpack"
-      ],
+      "matchPackageNames": ["containerbase/base", "ghcr.io/containerbase/base"],
       "semanticCommitType": "fix"
     }
   ],
@@ -124,7 +121,8 @@
       "description": "Update Renovate references in Markdown files",
       "fileMatch": ["\\.md$"],
       "matchStrings": [
-        "(?<depName>renovate\\/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
+        "(?<depName>renovate/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?",
+        "(?<depName>ghcr.io/renovatebot/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
@@ -133,8 +131,8 @@
       "description": "Update Github Action references in the Markdown files",
       "fileMatch": ["\\.md$"],
       "matchStrings": [
-        "\\suses: (?<depName>[\\w-]+\\/[\\w-]+)(?<path>\\/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
-        "\\suses: (?<depName>[\\w-]+\\/[\\w-]+)(?<path>\\/.*)?@(?<currentDigest>[a-z0-9]{40}|[a-z0-9]{64}) # tag=(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
+        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentDigest>[a-z0-9]{40}|[a-z0-9]{64}) # tag=(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver"
@@ -165,7 +163,7 @@
     },
     {
       "description": "Update `version:` and `_VERSION:` variables in github workflows",
-      "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
+      "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
       "matchStrings": [
         "\\s+version: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s",
         "\\s*[A-Z_]+?_VERSION: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s"
