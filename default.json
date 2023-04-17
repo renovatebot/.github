@@ -116,9 +116,9 @@
       "semanticCommitType": "fix"
     },
     {
-      "description": "don't pin our node devcontainer digest",
+      "description": "don't pin our devcontainer digests",
       "matchFiles": [".devcontainer/Dockerfile"],
-      "matchPackageNames": ["ghcr.io/containerbase/node"],
+      "matchPackageNames": ["ghcr.io/containerbase/node", "ghcr.io/containerbase/base"],
       "pinDigests": false
     }
   ],
