@@ -26,7 +26,7 @@
       "description": "Require dashboard approval for major updates except Renovate",
       "excludePackagePatterns": [
         "^renovate(bot)?($|/)",
-        "^(?:ghcr.io/)?containerbase/base$",
+        "^(?:ghcr.io/)?containerbase/",
         "^@renovatebot/"
       ],
       "matchUpdateTypes": ["major"],
@@ -76,11 +76,8 @@
       "description": "Group Renovate Buildpack and Ubuntu digest updates with themselves",
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
-      "matchPackageNames": [
-        "ubuntu",
-        "containerbase/base",
-        "ghcr.io/containerbase/base"
-      ],
+      "matchPackageNames": ["ubuntu"],
+      "matchPackagePatterns": ["^(?:ghcr.io/)?containerbase/"],
       "branchTopic": "{{{depNameSanitized}}}-digests",
       "commitMessageTopic": "{{{depName}}} Docker digests"
     },
@@ -111,15 +108,16 @@
       "enabled": false
     },
     {
-      "description": "Trigger fix release for buildpack updates",
+      "description": "Trigger fix release for containerbase updates",
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["containerbase/base", "ghcr.io/containerbase/base"],
+      "matchPackagePatterns": ["^(?:ghcr.io/)?containerbase/"],
       "semanticCommitType": "fix"
     },
     {
       "description": "don't pin our devcontainer digests",
       "matchFiles": [".devcontainer/Dockerfile"],
       "matchPackageNames": ["ghcr.io/containerbase/node", "ghcr.io/containerbase/base"],
+      "semanticCommitType": "chore",
       "pinDigests": false
     }
   ],
