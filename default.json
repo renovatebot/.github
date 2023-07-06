@@ -7,8 +7,6 @@
     ":rebaseStalePrs",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
-    "docker:enableMajor",
-    "docker:pinDigests",
     "group:linters",
     "helpers:pinGitHubActionDigests"
   ],
@@ -22,6 +20,12 @@
   "platformAutomerge": true,
   "internalChecksFilter": "strict",
   "packageRules": [
+    {
+      "description": "Pin digests for dockerfile and docker-compose managers",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchDatasources": ["docker"],
+      "pinDigests": true
+    },
     {
       "description": "Require dashboard approval for major updates except Renovate",
       "excludePackagePatterns": [
