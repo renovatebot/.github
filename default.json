@@ -19,6 +19,7 @@
   "rebaseWhen": "behind-base-branch",
   "platformAutomerge": true,
   "internalChecksFilter": "strict",
+  "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
       "description": "Pin digests for dockerfile and docker-compose managers",
