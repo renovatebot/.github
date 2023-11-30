@@ -18,6 +18,7 @@ jobs:
         file:
           - default
           - renovate-config
+          - merge-queue
     env:
       RENOVATE_CONFIG_FILE: ${{ matrix.file }}.json
 
