@@ -94,11 +94,11 @@
       "stabilityDays": 7
     },
     {
-      "description": "Require approval for aws-sdk as it updates too often",
+      "description": "Schedule monthly for aws-sdk as it updates too often",
       "matchDatasources": ["npm"],
       "matchPackageNames": ["aws-sdk"],
       "matchPackagePatterns": ["^@aws-sdk/"],
-      "dependencyDashboardApproval": true,
+      "extends": ["schedule:monthly"],
       "stabilityDays": 0
     },
     {
