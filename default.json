@@ -129,6 +129,14 @@
       "description": "defer prebuild updates to wait for arm64 builds",
       "matchPackageNames": ["/^containerbase/.+-prebuild$/"],
       "minimumReleaseAge": "2h"
+    },
+    {
+      "description": "set branch prefix for eslint v9 major update to split from other updates",
+      "matchPackageNames": ["eslint", "@types/eslint"],
+      "matchUpdateTypes": ["major"],
+      "matchCurrentVersion": "^8.0.0",
+      "matchNewValue": "/^9.\\d+.\\d+$/",
+      "additionalBranchPrefix": "eslint-v9"
     }
   ],
   "regexManagers": [
