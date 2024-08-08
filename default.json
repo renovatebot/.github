@@ -124,6 +124,11 @@
       "matchPackageNames": ["ghcr.io/containerbase/base", "ghcr.io/containerbase/devcontainer", "ghcr.io/containerbase/gitpod", "ghcr.io/containerbase/node"],
       "semanticCommitType": "chore",
       "pinDigests": false
+    },
+    {
+      "description": "defer prebuild updates to wait for arm64 builds",
+      "matchPackageNames": ["/^containerbase/.+-prebuild$/"],
+      "minimumReleaseAge": "2h"
     }
   ],
   "regexManagers": [
