@@ -7,7 +7,6 @@
     ":rebaseStalePrs",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
-    "group:linters",
     "helpers:pinGitHubActionDigests"
   ],
   "assignees": ["rarkins", "viceice"],
@@ -26,6 +25,12 @@
       "matchManagers": ["dockerfile", "docker-compose"],
       "matchDatasources": ["docker"],
       "pinDigests": true
+    },
+    {
+      "description": "Group linter minor and patch updates",
+      "extends": ["packages:linters"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "linters"
     },
     {
       "description": "Require dashboard approval for major updates except Renovate",
@@ -129,12 +134,6 @@
       "description": "defer prebuild updates to wait for arm64 builds",
       "matchPackageNames": ["/^containerbase/.+-prebuild$/"],
       "minimumReleaseAge": "2h"
-    },
-    {
-      "description": "Don't group linter major updates",
-      "extends": ["packages:linters"],
-      "matchUpdateTypes": ["major"],
-      "groupName": null
     }
   ],
   "regexManagers": [
