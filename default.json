@@ -131,12 +131,10 @@
       "minimumReleaseAge": "2h"
     },
     {
-      "description": "set branch prefix for eslint v9 major update to split from other updates",
-      "matchPackageNames": ["eslint", "@types/eslint"],
+      "description": "Don't group linter major updates",
+      "extends": ["packages:linters"],
       "matchUpdateTypes": ["major"],
-      "matchCurrentVersion": "^8.0.0",
-      "matchNewValue": "/^9.\\d+.\\d+$/",
-      "additionalBranchPrefix": "eslint-v9"
+      "groupName": null
     }
   ],
   "regexManagers": [
