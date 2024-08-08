@@ -133,11 +133,12 @@
   ],
   "regexManagers": [
     {
-      "description": "Update Renovate references in Markdown files",
+      "description": "Update Renovate and other docker images references in Markdown files",
       "fileMatch": ["\\.md$"],
       "matchStrings": [
         "(?<depName>renovate/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?",
-        "(?<depName>ghcr.io/renovatebot/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
+        "(?<depName>ghcr.io/renovatebot/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?",
+        "\\simage: (?<depName>.+):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
