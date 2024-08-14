@@ -134,6 +134,11 @@
       "description": "defer prebuild updates to wait for arm64 builds",
       "matchPackageNames": ["/^containerbase/.+-prebuild$/"],
       "minimumReleaseAge": "2h"
+    },
+    {
+      "description": "add eslint types to monorepo group",
+      "matchDepNames": ["@types/eslint"],
+      "groupName": "eslint monorepo"
     }
   ],
   "regexManagers": [
