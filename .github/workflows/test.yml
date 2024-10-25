@@ -6,7 +6,7 @@ on:
 
 env:
   LOG_LEVEL: debug
-  RENOVATE_VERSION: 38.130.3 # renovate: datasource=npm depName=renovate
+  RENOVATE_VERSION: 38.130.4 # renovate: datasource=npm depName=renovate
 
 jobs:
   preset:
