@@ -1,8 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Optimize settings for GitHub merge queues",
-  "automergeType": "pr",
-  "prCreation": "immediate",
-  "rebaseWhen": "conflicted",
-  "platformAutomerge": true
+  "baseBranches": ["main"],
+  "packageRules": [
+    {
+      "matchBaseBranches": ["main"],
+      "automergeType": "pr",
+      "prCreation": "immediate",
+      "rebaseWhen": "conflicted",
+      "platformAutomerge": true
+    }
+  ]
 }
