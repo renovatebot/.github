@@ -1,0 +1,10 @@
+node_modules/
+/coverage/
+/dist/
+/bin/
+/tmp/
+/html/
+
+# pnpm
+pnpm-lock.yaml
+/.pnpm-store
