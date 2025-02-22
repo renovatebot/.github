@@ -134,6 +134,12 @@
       "description": "add eslint types to monorepo group",
       "matchDepNames": ["@types/eslint"],
       "groupName": "eslint monorepo"
+    },
+    {
+      "description": "override versioning for base-image",
+      "matchPackageNames": ["ghcr.io/renovatebot/base-image"],
+      "versionCompatibility": "^(?<version>.+)(?<compatibility>-full)?$",
+      "versioning": "semver"
     }
   ],
   "customManagers": [
