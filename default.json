@@ -9,7 +9,7 @@
     ":semanticCommitScope(deps)",
     "helpers:pinGitHubActionDigests"
   ],
-  "assignees": ["rarkins", "viceice"],
+  "assignees": ["viceice"],
   "automergeType": "branch",
   "commitBodyTable": true,
   "configMigration": true,
