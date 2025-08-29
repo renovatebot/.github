@@ -3,6 +3,7 @@
   "description": "Default preset for use with Renovate's repos",
   "extends": [
     "config:recommended",
+    "abandonments:recommended",
     ":maintainLockFilesWeekly",
     ":rebaseStalePrs",
     ":semanticCommits",
