@@ -141,6 +141,11 @@
       "matchPackageNames": ["ghcr.io/renovatebot/base-image"],
       "versionCompatibility": "^(?<version>.+?)(?<compatibility>-full)?$",
       "versioning": "semver"
+    },
+    {
+      "description": "separate multiple major for node",
+      "matchDepNames": ["node", "**/node"],
+      "separateMultipleMajor": true
     }
   ],
   "customManagers": [
