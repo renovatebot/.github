@@ -38,7 +38,8 @@
       "matchPackageNames": [
         "!/^renovate(bot)?($|/)/",
         "!/^(?:ghcr.io/)?containerbase//",
-        "!/^@renovatebot//"
+        "!@renovatebot/*",
+        "!@containerbase/*"
       ],
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
@@ -50,7 +51,7 @@
     },
     {
       "description": "Group prettier packages",
-      "matchPackageNames": ["prettier", "/^@prettier//", "/^prettier-plugin-/"],
+      "matchPackageNames": ["prettier", "@prettier/*", "prettier-plugin-*"],
       "groupName": "prettier packages"
     },
     {
