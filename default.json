@@ -151,6 +151,12 @@
       "description": "separate multiple major for node",
       "matchDepNames": ["node", "**/node"],
       "separateMultipleMajor": true
+    },
+    {
+      "description": "set branch prefix for node major updates to split from minor updates",
+      "matchPackageNames": ["node", "**/node"],
+      "matchUpdateTypes": ["major"],
+      "additionalBranchPrefix": "major"
     }
   ],
   "customManagers": [
