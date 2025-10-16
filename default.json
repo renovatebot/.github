@@ -121,7 +121,7 @@
     },
     {
       "description": "Don't pin our dev docker image digest",
-      "matchFileNames": [".devcontainer/Dockerfile"],
+      "matchFileNames": [".devcontainer/**"],
       "matchPackageNames": [
         "ghcr.io/containerbase/base",
         "ghcr.io/containerbase/devcontainer",
