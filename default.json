@@ -163,6 +163,12 @@
       "matchPackageNames": ["@types/node"],
       "matchUpdateTypes": ["major"],
       "additionalBranchPrefix": "major-types"
+    },
+    {
+      "description": "widen node engines",
+      "matchDepName": ["node"],
+      "matchdepType": ["engines"],
+      "rangeStrategy": "widen"
     }
   ],
   "customManagers": [
