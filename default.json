@@ -158,7 +158,7 @@
       "additionalBranchPrefix": "major"
     },
     {
-      "description": "split node types to seperate pr",
+      "description": "split node types to separate pr",
       "matchPackageNames": ["@types/node"],
       "matchUpdateTypes": ["major"],
       "additionalBranchPrefix": "major-types"
