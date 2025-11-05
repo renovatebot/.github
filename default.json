@@ -156,6 +156,12 @@
       "matchPackageNames": ["node", "**/node"],
       "matchUpdateTypes": ["major"],
       "additionalBranchPrefix": "major"
+    },
+    {
+      "description": "split node types to seperate pr",
+      "matchPackageNames": ["@types/node"],
+      "matchUpdateTypes": ["major"],
+      "additionalBranchPrefix": "major-types"
     }
   ],
   "customManagers": [
