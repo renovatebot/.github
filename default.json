@@ -8,7 +8,8 @@
     ":rebaseStalePrs",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
-    "helpers:pinGitHubActionDigests"
+    "helpers:pinGitHubActionDigests",
+    "local>renovatebot/.github:weekly-docs-references"
   ],
   "assignees": ["viceice"],
   "automergeType": "branch",
@@ -54,22 +55,6 @@
       "description": "Group prettier packages",
       "matchPackageNames": ["prettier", "@prettier/*", "prettier-plugin-*"],
       "groupName": "prettier packages"
-    },
-    {
-      "description": "Update references to Docker tags for renovate/renovate in Markdown files weekly",
-      "matchPackageNames": [
-        "renovate/renovate",
-        "ghcr.io/renovatebot/renovate"
-      ],
-      "matchFileNames": ["**/*.md"],
-      "extends": ["schedule:weekly"],
-      "automerge": true,
-      "minimumReleaseAge": "0 days",
-      "separateMajorMinor": false,
-      "commitMessageTopic": "references to {{{depName}}}",
-      "semanticCommitType": "docs",
-      "semanticCommitScope": null,
-      "additionalBranchPrefix": "docs-"
     },
     {
       "description": "Disable Ubuntu minor updates",
