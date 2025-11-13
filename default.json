@@ -9,7 +9,7 @@
     ":semanticCommits",
     ":semanticCommitScope(deps)",
     "helpers:pinGitHubActionDigests",
-    "local>renovatebot/.github:weekly-docs-references"
+    "github>renovatebot/.github:weekly-docs-references"
   ],
   "assignees": ["viceice"],
   "automergeType": "branch",
