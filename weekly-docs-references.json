@@ -1,14 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Update references to Docker tags for renovate/renovate in Markdown files weekly",
-  "matchPackageNames": ["renovate/renovate", "ghcr.io/renovatebot/renovate"],
-  "matchFileNames": ["**/*.md"],
-  "extends": ["schedule:weekly"],
-  "automerge": true,
-  "minimumReleaseAge": "0 days",
-  "separateMajorMinor": false,
-  "commitMessageTopic": "references to {{{depName}}}",
-  "semanticCommitType": "docs",
-  "semanticCommitScope": null,
-  "additionalBranchPrefix": "docs-"
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "renovate/renovate",
+        "ghcr.io/renovatebot/renovate"
+      ],
+      "matchFileNames": ["**/*.md"],
+      "extends": ["schedule:weekly"],
+      "automerge": true,
+      "minimumReleaseAge": "0 days",
+      "separateMajorMinor": false,
+      "commitMessageTopic": "references to {{{depName}}}",
+      "semanticCommitType": "docs",
+      "semanticCommitScope": null,
+      "additionalBranchPrefix": "docs-"
+    }
+  ]
 }
