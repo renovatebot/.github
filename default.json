@@ -86,7 +86,7 @@
       "matchDatasources": ["npm"],
       "matchPackageNames": ["aws-sdk", "/^@aws-sdk//"],
       "extends": ["schedule:monthly"],
-      "minimumReleaseAge": "0 days"
+      "minimumReleaseAge": null
     },
     {
       "description": "Only patch updates on renovate rebuild trigger files",
