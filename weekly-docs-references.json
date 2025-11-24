@@ -10,7 +10,7 @@
       "matchFileNames": ["**/*.md"],
       "extends": ["schedule:weekly"],
       "automerge": true,
-      "minimumReleaseAge": "0 days",
+      "minimumReleaseAge": null,
       "separateMajorMinor": false,
       "commitMessageTopic": "references to {{{depName}}}",
       "semanticCommitType": "docs",
