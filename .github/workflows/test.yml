@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     container:
-      image: ghcr.io/renovatebot/renovate:42.39.2@sha256:da079ea139fc66e1897a54bf501ac88b12339125a94d1d5745dcca05b9982f72
+      image: ghcr.io/renovatebot/renovate:42.39.4@sha256:42d71876fbeaba14ff3ba154db8caef80f40b92cd3cd4489c46cca8a44886bf5
       # github hosted runners are running as `1001:127` (ubuntu:docker)
       options: -u 1001:0 --group-add 1000 --group-add 12021 --group-add 127
 
