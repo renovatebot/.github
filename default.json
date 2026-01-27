@@ -133,6 +133,12 @@
       "versioning": "semver"
     },
     {
+      "description": "override extractVersion for docker v29+",
+      "matchPackageNames": ["moby/moby"],
+      "matchDatasources": ["github-releases"],
+      "extractVersion": "^(?:docker-)?(?<version>v.+)"
+    },
+    {
       "description": "separate multiple major for node",
       "matchDepNames": ["node", "**/node"],
       "separateMultipleMajor": true
