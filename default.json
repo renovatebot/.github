@@ -47,6 +47,13 @@
       "dependencyDashboardApproval": true
     },
     {
+      "description": "Require approval for @tsconfig/node replacements",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@tsconfig/node*"],
+      "matchUpdateTypes": ["replacement"],
+      "dependencyDashboardApproval": true
+    },
+    {
       "description": "Automerge non-major updates",
       "matchUpdateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
       "automerge": true
