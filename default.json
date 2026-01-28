@@ -59,6 +59,12 @@
       "automerge": true
     },
     {
+      "description": "Automerge some major updates.",
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["@containerbase/*", "containerbase/internal-tools"],
+      "automerge": true
+    },
+    {
       "description": "Group prettier packages",
       "matchPackageNames": ["prettier", "@prettier/*", "prettier-plugin-*"],
       "groupName": "prettier packages"
