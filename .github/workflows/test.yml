@@ -59,7 +59,7 @@ jobs:
           show-progress: false
 
       - name: testing ${{ matrix.file }}
-        run: renovate-config-validator ${{ matrix.file }}.json
+        run: renovate-config-validator --no-global ${{ matrix.file }}.json
 
   preset-success:
     runs-on: ubuntu-latest
