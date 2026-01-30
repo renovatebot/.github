@@ -3,7 +3,11 @@
   "description": "Update references in Markdown files weekly",
   "packageRules": [
     {
-      "matchPackageNames": ["!ghcr.io/renovatebot/renovate", "!renpovate"],
+      "matchPackageNames": [
+        "!ghcr.io/renovatebot/renovate",
+        "!renovate",
+        "!renovatebot/renovate"
+      ],
       "matchFileNames": ["**/*.md"],
       "matchUpdateTypes": ["!major"],
       "extends": ["schedule:weekly"],
