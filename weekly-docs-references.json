@@ -8,6 +8,7 @@
         "ghcr.io/renovatebot/renovate"
       ],
       "matchFileNames": ["**/*.md"],
+      "matchUpdateTypes": ["!major"],
       "extends": ["schedule:weekly"],
       "automerge": true,
       "minimumReleaseAge": null,
