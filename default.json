@@ -98,8 +98,7 @@
       "description": "Schedule monthly for aws-sdk as it updates too often",
       "matchDatasources": ["npm"],
       "matchPackageNames": ["aws-sdk", "/^@aws-sdk//"],
-      "extends": ["schedule:monthly"],
-      "minimumReleaseAge": null
+      "extends": ["schedule:monthly"]
     },
     {
       "description": "Only patch updates on renovate rebuild trigger files",
