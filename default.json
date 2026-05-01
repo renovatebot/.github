@@ -177,6 +177,17 @@
   "customManagers": [
     {
       "customType": "regex",
+      "description": "Update `renovateVersion` references in Markdown files",
+      "managerFilePatterns": ["/\\.md$/"],
+      "matchStrings": [
+        "\"renovateVersion\":\\s\"(?<currentValue>[a-z0-9.-]+)\""
+      ],
+      "depNameTemplate": "renovate/renovate",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
+    },
+    {
+      "customType": "regex",
       "description": "Update Renovate and other docker images references in Markdown files",
       "managerFilePatterns": ["/\\.md$/"],
       "matchStrings": [
