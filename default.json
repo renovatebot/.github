@@ -87,12 +87,13 @@
     {
       "description": "One week stability period for npm packages except Renovate",
       "matchDatasources": ["npm"],
-      "matchPackageNames": [
-        "!renovate",
-        "!@renovatebot/*",
-        "!@containerbase/*"
-      ],
       "minimumReleaseAge": "7 days"
+    },
+    {
+      "description": "Exclude packages from minimum relrease age",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["renovate", "@renovatebot/*", "@containerbase/*"],
+      "minimumReleaseAge": null
     },
     {
       "description": "Schedule monthly for aws-sdk as it updates too often",
