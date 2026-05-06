@@ -65,6 +65,12 @@
       "automerge": true
     },
     {
+      "description": "Do not automerge GitHub Action digest updates.",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["digest"],
+      "automerge": false
+    },
+    {
       "description": "Group prettier packages",
       "matchPackageNames": ["prettier", "@prettier/*", "prettier-plugin-*"],
       "groupName": "prettier packages"
