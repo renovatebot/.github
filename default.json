@@ -21,6 +21,9 @@
   "platformAutomerge": true,
   "internalChecksFilter": "strict",
   "postUpdateOptions": ["pnpmDedupe", "yarnDedupeHighest"],
+  "statusCheckWhen": {
+    "artifactError": "always"
+  },
   "packageRules": [
     {
       "description": "Pin digests for dockerfile and docker-compose managers",
