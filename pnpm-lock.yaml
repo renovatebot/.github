@@ -15,11 +15,11 @@ importers:
         specifier: 16.4.0
         version: 16.4.0
       prettier:
-        specifier: 3.9.2
-        version: 3.9.2
+        specifier: 3.9.3
+        version: 3.9.3
       prettier-plugin-packagejson:
         specifier: 3.0.2
-        version: 3.0.2(prettier@3.9.2)
+        version: 3.0.2(prettier@3.9.3)
 
 packages:
 
@@ -130,8 +130,8 @@ packages:
       prettier:
         optional: true
 
-  prettier@3.9.2:
-    resolution: {integrity: sha512-8LHNw4SKae4PyiAful3l/eTTDW818iaDsY03G3XAguuSbo7IUUrmDhQjTdTy453P5dt6MQMnX6fVMXPasfV77w==}
+  prettier@3.9.3:
+    resolution: {integrity: sha512-HWmu+K+zvHNpaMfSnYeqdqrDbR16cuIXaPx8WoHaviQkDJh1/0BNtOZmHVQI5jc3wXv0H1yXc9wjvFdXh+n3hQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -283,13 +283,13 @@ snapshots:
 
   picomatch@4.0.5: {}
 
-  prettier-plugin-packagejson@3.0.2(prettier@3.9.2):
+  prettier-plugin-packagejson@3.0.2(prettier@3.9.3):
     dependencies:
       sort-package-json: 3.7.1
     optionalDependencies:
-      prettier: 3.9.2
+      prettier: 3.9.3
 
-  prettier@3.9.2: {}
+  prettier@3.9.3: {}
 
   restore-cursor@5.1.0:
     dependencies:
