@@ -43,7 +43,7 @@ jobs:
           cache: pnpm
 
       - run: pnpm install
-      - run: pnpm prettier
+      - run: pnpm oxfmt
 
       - name: Install the workflow linters
         uses: jdx/mise-action@6be3c7ed4c21d4f76b208d351d95aac273ebb76d # v5.2.4

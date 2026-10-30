@@ -9,18 +9,17 @@
   "type": "module",
   "scripts": {
     "prepare": "husky",
-    "prettier": "prettier --cache -c -u '**/*.*'",
-    "prettier-fix": "prettier --cache -w -u '**/*.*'"
+    "oxfmt": "oxfmt --check",
+    "oxfmt-fix": "oxfmt"
   },
   "devDependencies": {
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
-    "prettier": "3.9.10",
-    "prettier-plugin-packagejson": "3.0.2"
+    "oxfmt": "0.74.0"
   },
-  "packageManager": "pnpm@10.34.7",
   "engines": {
     "node": "^22.11.0 || >=24.10.0",
     "pnpm": "^10.0.0"
-  }
+  },
+  "packageManager": "pnpm@10.34.7"
 }

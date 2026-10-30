@@ -189,9 +189,7 @@
       "customType": "regex",
       "description": "Update `renovateVersion` references in Markdown files",
       "managerFilePatterns": ["/\\.md$/"],
-      "matchStrings": [
-        "\"renovateVersion\":\\s\"(?<currentValue>[a-z0-9.-]+)\""
-      ],
+      "matchStrings": ["\"renovateVersion\":\\s\"(?<currentValue>[a-z0-9.-]+)\""],
       "depNameTemplate": "renovate/renovate",
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
@@ -222,10 +220,7 @@
     {
       "customType": "regex",
       "description": "Update _VERSION variables in Dockerfiles",
-      "managerFilePatterns": [
-        "/(^|/|\\.)Dockerfile$/",
-        "/(^|/)Dockerfile\\.[^/]*$/"
-      ],
+      "managerFilePatterns": ["/(^|/|\\.)Dockerfile$/", "/(^|/)Dockerfile\\.[^/]*$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z0-9-]+?))?\\s(?:ENV|ARG) .+?_VERSION=(?<currentValue>.+?)\\s"
       ]
@@ -233,10 +228,7 @@
     {
       "customType": "regex",
       "description": "Update install-* Buildpack commands in Dockerfiles",
-      "managerFilePatterns": [
-        "/(^|/|\\.)Dockerfile$/",
-        "/(^|/)Dockerfile\\.[^/]*$/"
-      ],
+      "managerFilePatterns": ["/(^|/|\\.)Dockerfile$/", "/(^|/)Dockerfile\\.[^/]*$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z0-9-]+?))?\\sRUN install-[a-z]+? (?<depName>[a-z-]+?) (?<currentValue>.+?)\\s"
       ]
