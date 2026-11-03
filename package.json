@@ -15,7 +15,7 @@
   "devDependencies": {
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
-    "oxfmt": "0.74.0"
+    "oxfmt": "0.75.0"
   },
   "engines": {
     "node": "^22.11.0 || >=24.10.0",
