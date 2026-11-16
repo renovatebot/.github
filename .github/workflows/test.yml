@@ -65,13 +65,17 @@ jobs:
       image: ghcr.io/renovatebot/renovate:44.239.1@sha256:7dba1a3b916a2cf302ba0df458ddcc8fcbac3c92d0fe9882ac13ba0363de656b
       # github hosted runners are running as `1001:127` (ubuntu:docker)
       options: -u 1001:0 --group-add 1000 --group-add 12021 --group-add 127
+    env:
+      FORCE_COLOR: '1'
 
     strategy:
+      fail-fast: false
       matrix:
         file:
           - default
           - renovate-config
           - merge-queue
+          - weekly-docs-references
           - .github/renovate
 
     steps:
@@ -81,7 +85,10 @@ jobs:
           show-progress: false
 
       - name: testing ${{ matrix.file }}
-        run: renovate-config-validator --no-global ${{ matrix.file }}.json
+        run: renovate-config-validator --no-global --strict --migrate ${{ matrix.file }}.json
+
+      - name: Check for config migrations
+        run: git diff --color --exit-code
 
   preset-success:
     runs-on: ubuntu-latest
