@@ -5,7 +5,6 @@
     "config:recommended",
     "abandonments:recommended",
     ":maintainLockFilesWeekly",
-    ":rebaseStalePrs",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
     "helpers:pinGitHubActionDigests",
@@ -15,11 +14,8 @@
   "automergeType": "branch",
   "commitBodyTable": true,
   "configMigration": true,
-  "dependencyDashboard": true,
   "prCreation": "not-pending",
   "rebaseWhen": "behind-base-branch",
-  "platformAutomerge": true,
-  "internalChecksFilter": "strict",
   "postUpdateOptions": ["pnpmDedupe", "yarnDedupeHighest"],
   "statusCheckWhen": {
     "artifactError": "always"
