@@ -19,7 +19,6 @@
       "matchPackageNames": ["!ghcr.io/renovatebot/renovate", "!renovate", "!renovatebot/renovate"],
       "matchFileNames": ["**/*.md"],
       "matchUpdateTypes": ["major"],
-      "extends": ["schedule:weekly"],
       "automerge": false,
       "minimumReleaseAge": null,
       "commitMessageTopic": "references to {{{depName}}}",
