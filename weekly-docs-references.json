@@ -13,6 +13,18 @@
       "semanticCommitType": "docs",
       "semanticCommitScope": null,
       "additionalBranchPrefix": "docs-"
+    },
+    {
+      "description": "Major updates to references are still `docs` changes, but need a human to review them",
+      "matchPackageNames": ["!ghcr.io/renovatebot/renovate", "!renovate", "!renovatebot/renovate"],
+      "matchFileNames": ["**/*.md"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "minimumReleaseAge": null,
+      "commitMessageTopic": "references to {{{depName}}}",
+      "semanticCommitType": "docs",
+      "semanticCommitScope": null,
+      "additionalBranchPrefix": "docs-"
     }
   ]
 }
